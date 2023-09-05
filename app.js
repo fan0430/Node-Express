@@ -18,6 +18,7 @@ const app = express();
 //     // notDefined(); // 執行一個沒有定義的函式
 //     next(); // 一定要加這個函式才會往下處理
 // });
+app.use(express.static('resources')); // 将静态文件放在名为 "resources" 的目录中
 
 function middleware(req, res, next) {
     console.log("這是 middleware");
@@ -26,7 +27,8 @@ function middleware(req, res, next) {
     if (firstPathSegment === 'page') {
         next();
     } else {
-        res.status(404).send("404 Oops! 找不到網頁！");
+        if(firstPathSegment == "") res.send("<h1>這是 middleware 練習</h1><img src='./images/haha.png'>");
+        else res.status(404).send("404 Oops! 找不到網頁！");
     }
 
 }
@@ -43,7 +45,7 @@ app.get("/*", middleware, middleware2, (req, res) => {
     // res.send('<h1>這是 middleware 練習</h1>');
     // console.log("request =", req.params);
     const params = req.params[0].split("/")[1];
-    let responseText = "";
+    let responseText = '';
 
     switch (params) {
         case "fan":
