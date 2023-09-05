@@ -30,7 +30,8 @@ function middleware(req, res, next) {
     } else {
         if (firstPathSegment == "") {
             // res.send("<h1>這是 middleware 練習</h1><img src='./images/haha.png'>");
-            res.render("index");
+            //模板文件的文件名, 传递给视图模板的变量的对象
+            res.render("index", {message:"我是傳過來的"});
 
         }
         else res.status(404).send("404 Oops! 找不到網頁！");
