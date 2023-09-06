@@ -6,11 +6,11 @@ app.use(express.static('resources'));
 
 // 用于处理HTTP POST请求中的表单数据。具体来说，它处理了以下内容
 app.use(express.urlencoded({
-    /*
-    处理表单数据的扩展选项：在代码中，extended: false 选项告诉中间件使用Node.js内置的querystring库来解析表单数据，而不是使用更复杂的第三方库。
-    这意味着解析的数据将不包含嵌套对象和数组。如果将此选项更改为true，则中间件将使用第三方库来支持更复杂的数据结构。
-    */
-    extended: false
+  /*
+  处理表单数据的扩展选项：在代码中，extended: false 选项告诉中间件使用Node.js内置的querystring库来解析表单数据，而不是使用更复杂的第三方库。
+  这意味着解析的数据将不包含嵌套对象和数组。如果将此选项更改为true，则中间件将使用第三方库来支持更复杂的数据结构。
+  */
+  extended: false
 }))
 
 // EJS 核心
@@ -36,4 +36,5 @@ const todos = [
 // 可直接使用 controller 的方法拿取資料和進行 render
 app.get('/todos', todoController.getAll)
 
-app.get('/todos/:id',todoController.get)
+app.get('/todos/:id', todoController.get)
+
