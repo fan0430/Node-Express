@@ -9,6 +9,6 @@
     "nodemon": "^3.0.1"
   },
   "scripts": {
-    "start": "nodemon client_mongodb.js"
+    "start": "nodemon client_mongodb_atlas.js"
   }
 }
